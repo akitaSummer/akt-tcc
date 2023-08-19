@@ -1,0 +1,25 @@
+{
+  "name": "akt-tcc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "rw-mutex-ts": "^1.1.0"
+  }
+}
