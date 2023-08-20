@@ -1,0 +1,8 @@
+{
+  "name": "@akt-tcc/example",
+  "version": "0.0.1",
+  "dependencies": {},
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  }
+}

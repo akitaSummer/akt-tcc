@@ -181,7 +181,7 @@ export class TXManager {
 
   #getComponents = async (...reqs: RequestEntity[]) => {
     const idToReq: Record<string, RequestEntity> = {};
-    const componentIDs = [];
+    const componentIDs: string[] = [];
     for (const req of reqs) {
       idToReq[req.componentName] = req;
       componentIDs.push(req.componentName);

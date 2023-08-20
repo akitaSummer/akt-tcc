@@ -1,5 +1,5 @@
-import { TCCComponent } from "./component";
-import { RWMutex } from "rw-mutex-ts";
+import { TCCComponent } from './component';
+import { RWMutex } from 'rw-mutex-ts';
 
 export class registryCenter {
   constructor(
@@ -11,7 +11,7 @@ export class registryCenter {
     await this.mux.lock();
     const components = this.components.get(await component.ID());
     if (components) {
-      throw Error("repeat component id");
+      throw Error('repeat component id');
     }
     this.components.set(await component.ID(), component);
 
@@ -21,7 +21,7 @@ export class registryCenter {
   getComponents = async (...componentIDs: string[]) => {
     try {
       await this.mux.lock();
-      const res = [];
+      const res: TCCComponent[] = [];
       for (const componentID of componentIDs) {
         const components = this.components.get(componentID);
         if (components) {

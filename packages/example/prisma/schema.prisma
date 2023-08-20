@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model tx_record {
+  id                     String @id @default(cuid())
+  status                 String
+  component_try_statuses Json
+  deleted_at             Int
+  created_at             Int
+  updated_at             Int
+
+  @@unique([id, status])
+  @@index([status])
+}

@@ -1,0 +1,45 @@
+{
+  "name": "txmanager",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/txmanager/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/txmanager",
+        "main": "packages/txmanager/src/index.ts",
+        "tsConfig": "packages/txmanager/tsconfig.lib.json",
+        "rollupConfig": "packages/txmanager/rollup.config.js",
+        "assets": [],
+        "project": "packages/txmanager/package.json",
+        "compiler": "swc",
+        "format": ["cjs", "esm"]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs txmanager {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/txmanager/**/*.ts",
+          "packages/txmanager/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["coverage/packages/txmanager"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/packages/txmanager"
+      }
+    }
+  },
+  "tags": []
+}
